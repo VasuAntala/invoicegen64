@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+.btn{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #fb1818;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
