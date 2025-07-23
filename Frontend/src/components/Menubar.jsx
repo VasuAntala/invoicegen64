@@ -1,5 +1,4 @@
 import Logo from './logo.jsx';
-import './menubar.css '
 import { Link } from "react-router-dom";
 
 const Manubar = () => { 
@@ -28,7 +27,7 @@ const Manubar = () => {
  
         </button>
         
-<div className="collapse navbar-collapse" id="navbarSupportedContent">
+<div className="collapse navbar-collapse" id="navbarSupportedContent" style={{ flexGrow: 0 }}>
   <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       <li className="nav-item">       
           <Link className="nav-link fw-medium" to='/mainpage'>
