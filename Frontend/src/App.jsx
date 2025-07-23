@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import Mainpagee from "./pages/Mainpagee.jsx";
 import PreviewPage from "./pages/Previewpage.jsx";
 import Register from "./pages/login/signup/registration.jsx";
+import Login from "./pages/login/login.jsx"
 import './App.css';
 
  
@@ -26,6 +27,7 @@ import './App.css';
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/preview" element={<PreviewPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />}/>
       </Routes>
 
     <Footer />

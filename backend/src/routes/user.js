@@ -5,7 +5,7 @@ import {verifyToken} from'../helper/jwt.js';
 
 const authrouter = Router();
 
-authrouter.post('/login', verifyToken , authcontroller.login);
+authrouter.post('/login',   authcontroller.login);
 
 authrouter.post('/registers', authcontroller.register);
 

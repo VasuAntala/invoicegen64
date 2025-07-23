@@ -1,4 +1,5 @@
 import Logo from './logo.jsx';
+import './menubar.css '
 import { Link } from "react-router-dom";
 
 const Manubar = () => { 
@@ -27,35 +28,42 @@ const Manubar = () => {
  
         </button>
         
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">       
-                    <Link className="nav-link fw-medium" to='/mainpage'>
-                        Home
-                    </Link>          
-                    </li>
-                <li className="nav-item">
-                    <button className="nav-link fw-medium" to='/landingpage'>
-                    Generate
-                    </button>     
-              </li>
-                <li className="nav-item">
-                    <Link className="nav-link fw-medium" to='/preview'>
-                    About Us
-                    </Link>             
-                      </li>
-                <li className="nav-item">
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link fw-medium" to='/dashboard'>
-                    Contact Us
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <button className="btn btn-primary rounded-pill px-4" onClick={() => window.location.href='/register'}>Login/Signup</button>
-                </li>
-            </ul>
-            </div>
+<div className="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li className="nav-item">       
+          <Link className="nav-link fw-medium" to='/mainpage'>
+              Home
+          </Link>          
+      </li>
+      <li className="nav-item">
+          <button className="nav-link fw-medium" to='/landingpage'>
+            Generate
+          </button>     
+      </li>
+      <li className="nav-item">
+          <Link className="nav-link fw-medium" to='/preview'>
+            About Us
+          </Link>             
+      </li>
+      <li className="nav-item">
+          <Link className="nav-link fw-medium" to='/dashboard'>
+              Contact Us
+          </Link>
+      </li>
+  </ul>
+
+  {/* Add ms-auto class here to push this to right */}
+  <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li className="nav-item">
+          <button 
+            className="btn btn-primary rounded-pill px-4" 
+            onClick={() => window.location.href='/register'}>
+                Login/Signup
+          </button>
+      </li>
+  </ul>
+</div>
+
                 </div>
                 </nav>
     );

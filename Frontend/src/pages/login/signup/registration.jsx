@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Registration.css';
+import { Link } from 'react-router-dom';
 
 const Registration = () => {
     // State for form fields
@@ -60,8 +61,8 @@ const Registration = () => {
     return (
         <div className="container">
             <div className='main-content-registration'>
+                    <h3>Registration Page</h3>
                 <div className="form-group">
-                    <h5>Registration Page</h5>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="username">Username:</label>
                         <input
@@ -74,7 +75,7 @@ const Registration = () => {
                             placeholder="Enter username"
                             required
                         />
-
+                            <br />
                         <label htmlFor="email">Email:</label>
                         <input
                             type="email"
@@ -86,7 +87,7 @@ const Registration = () => {
                             placeholder="Enter email"
                             required
                         />
-
+                            <br />
                         <label htmlFor="password">Password:</label>
                         <input
                             type="password"
@@ -98,7 +99,7 @@ const Registration = () => {
                             placeholder="Enter password"
                             required
                         />
-
+                            <br />
                         <label htmlFor="confirmPassword">Confirm Password:</label>
                         <input
                             type="password"
@@ -110,7 +111,7 @@ const Registration = () => {
                             placeholder="Confirm password"
                             required
                         />
-
+                            <br />
                         <label htmlFor="terms">
                             <input
                                 type="checkbox"
@@ -123,13 +124,45 @@ const Registration = () => {
                             {' '}
                             I agree to the terms and conditions
                         </label>
-                        <br />
+                      
 
                         <button type="submit" className="btn btn-primary mt-3">
                             Register
                         </button>
                         <br />
-                        <a href='/login' style={{color:"black"}}>Already have an account? Login</a>
+
+                <div className="text-center text-muted mb-3">OR</div>
+
+                <div className="d-flex gap-3 mb-3">
+                    <button
+                        className="btn w-50"
+                        style={{
+                            border: "1px solid #4169E1",
+                            color: "#4169E1",
+                            backgroundColor: "transparent",
+                        }}
+                    >
+                        <i className="bi bi-facebook me-1" /> Facebook
+                    </button>
+                    <button
+                        className="btn w-50"
+                        style={{
+                           border: "1px solid #4169E1",
+                            color: "#4169E1",
+                            backgroundColor: "transparent",
+                        }}
+                    >
+                        <i className="bi bi-google me-1" /> Google
+                    </button>
+                </div>
+
+                    <p className="text-center text-muted mt-4">
+                    Already have an account?{" "}
+                    <Link to="/login" className="text-decoration-none" style={{ color: "#4169E1" }}>
+                        Login
+                    </Link>
+                </p>      
+            
                         {error && <p style={{ color: 'red' }}>{error}</p>}
                         {success && <p style={{ color: 'green' }}>{success}</p>}
                     </form>
