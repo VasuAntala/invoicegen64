@@ -54,12 +54,11 @@ export const login = async (req, res) => {
     if (!user || user.password !== password)
       return res.status(401).json({ error: 'Invalid credentials' });
 
- 
-
     res.status(200).json({
       message: 'Login successful',
       data:{
         email:user.email,
+        username: user.username
       }
 
     });

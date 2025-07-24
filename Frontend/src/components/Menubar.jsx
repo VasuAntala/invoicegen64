@@ -52,7 +52,7 @@ const Manubar = () => {
   </ul>
 
   {/* Add ms-auto class here to push this to right */}
-  <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+  {/* <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       <li className="nav-item">
           <button 
             className="btn btn-primary rounded-pill px-4" 
@@ -60,7 +60,7 @@ const Manubar = () => {
                 Login/Signup
           </button>
       </li>
-  </ul>
+  </ul> */}
 </div>
 
                 </div>

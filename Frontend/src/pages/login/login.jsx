@@ -12,7 +12,7 @@ const Login = () => {
         email: '',
         password: '',
         terms: false,
-    }); 
+    });
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -33,97 +33,98 @@ const Login = () => {
         try {
             // Change the URL to match your backend endpoint
             const response = await axios.post('http://localhost:3002/auth/login', {
-                email: formData.email,  
+                email: formData.email,
                 password: formData.password,
             });
-            console.log("------>" + response);
+            console.log("------>" + response.data.data);
+            // localStorage.setItem("token", response.data.token);
+            // localStorage.setItem("user", JSON.stringify(response.data.user))
             setSuccess('Login successful!');
             // Optionally, redirect after login
-            window.location.href = '/mainpage';
+            // window.location.href = '/mainpage';
         } catch (err) {
             setError(err.response?.data?.error || 'Login failed');
-        }   
-
+        }
     }
-    
+
     return (
         <div className="container">
-            <div className='main-content-login'> 
-             <h3> Login Page </h3>
-            <div className="form-group-login">
-                <form onSubmit={handleSubmit}>
+            <div className='main-content-login'>
+                <h3> Login Page </h3>
+                <div className="form-group-login">
+                    <form onSubmit={handleSubmit}>
 
-                    <label htmlFor="email">Email:</label>
-                    <input 
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        name="email"
-                        placeholder="Enter email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                    <br />
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        name="password"
-                        placeholder="Enter password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required 
-                     />
-                    <br />
-                   
-                    <button type="submit" className="btn btn-primary mt-3"  >Login</button>
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Enter email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                        <br />
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            name="password"
+                            placeholder="Enter password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                        <br />
+
+                        <button type="submit" className="btn btn-primary mt-3"  >Login</button>
 
                         <br />
                         <br></br>
-                         <div className="d-flex gap-3 mb-3">
-                    <button
-                        className="btn w-50"
-                        style={{
-                            border: "1px solid #4169E1",
-                            color: "#4169E1",
-                            backgroundColor: "transparent",
-                        }}
-                    >
-                        <i className="bi bi-facebook me-1" /> Facebook
-                    </button>
-                    <button
-                        className="btn w-50"
-                        style={{
-                            border: "1px solid #4169E1",
-                            color: "#4169E1",
-                            backgroundColor: "transparent",
-                        }}
-                    >
-                        <i className="bi bi-google me-1" /> Google
-                    </button>
+                        <div className="d-flex gap-3 mb-3">
+                            <button
+                                className="btn w-50"
+                                style={{
+                                    border: "1px solid #4169E1",
+                                    color: "#4169E1",
+                                    backgroundColor: "transparent",
+                                }}
+                            >
+                                <i className="bi bi-facebook me-1" /> Facebook
+                            </button>
+                            <button
+                                className="btn w-50"
+                                style={{
+                                    border: "1px solid #4169E1",
+                                    color: "#4169E1",
+                                    backgroundColor: "transparent",
+                                }}
+                            >
+                                <i className="bi bi-google me-1" /> Google
+                            </button>
+                        </div>
+                        <p className="text-center text-muted">
+                            Dont have an account yet?{" "}
+                            <Link
+                                to="/register"
+                                className="register-link text-decoration-none"
+                                style={{ color: "#4169E1" }}
+                            >
+                                Register
+                            </Link>
+                        </p>
+
+                        {/* <a href='/register'>Create a new account Register</a> */}
+
+                    </form>
+
                 </div>
-                    <p className="text-center text-muted">
-                     Dont have an account yet?{" "}
-                    <Link
-                        to="/register"
-                        className="register-link text-decoration-none"
-                        style={{ color: "#4169E1" }}
-                    >
-                        Register
-                    </Link>
-                </p>
-
-                    {/* <a href='/register'>Create a new account Register</a> */}
-
-                </form>
-
-            </div>
-            {/* Additional content can be added here */}
+                {/* Additional content can be added here */}
             </div>
         </div>
     );
-}       
+}
 
 export default Login;
