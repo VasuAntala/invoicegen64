@@ -5,7 +5,7 @@ import invoice from './invoice.jpg';
 import invoice1 from './invoice1.jpg';
 import invoice2 from './invoice2.jpg';
 import invoice3 from './invoice3.jpg';
-import Logo1 from './logo1.png';
+import Logo1 from './Logo1.png';
 
 
 const Assets = {

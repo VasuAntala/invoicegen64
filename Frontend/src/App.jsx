@@ -7,8 +7,8 @@ import LandingPage from "./pages/Landingpage/Landingpage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Mainpagee from "./pages/Mainpagee.jsx";
 import PreviewPage from "./pages/Previewpage.jsx";
-import Register from "./pages/login/signup/registration.jsx";
-import Login from "./pages/login/login.jsx"
+import Register from "./pages/Login/signup/registration.jsx";
+import Login from "./pages/Login/login.jsx"
 import './App.css';
 
  

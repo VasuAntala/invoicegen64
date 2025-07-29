@@ -21,19 +21,13 @@ export const register = async (req, res) => {
     const newUser = new model.User({ username, email, password });
     await newUser.save();
 
-    const token = jwt.sign(
-      { email: newUser.email },
-      JWT_SECRET,
-      { expiresIn: '1h' }
-    );
+
     
-    console.log(token);
     return res.status(201).json({
       message: "User created successfully",
       data: {
         username: newUser.username,
         email: newUser.email,
-        token
       }
     });
 
@@ -45,7 +39,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
 
   try {
-    const { email, password } = req.body;
+    const { username , email, password } = req.body;
 
     if (!email || !password)
       return res.status(400).json({ error: 'Email and password are required' });
@@ -54,11 +48,24 @@ export const login = async (req, res) => {
     if (!user || user.password !== password)
       return res.status(401).json({ error: 'Invalid credentials' });
 
+    if (!username)
+      return res.status(400).json({error: "enter username please"})
+
+        const token = jwt.sign(
+      {  username: user.username,
+         email: user.email },
+      JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    console.log(token)
+
     res.status(200).json({
       message: 'Login successful',
       data:{
+        username: user.username,
         email:user.email,
-        username: user.username
+        token
       }
 
     });

@@ -16,6 +16,11 @@ const Mainpagee = () => {
                     </button>
                 </div>
 
+                    <div className="button-container">
+                    <button className="btn btn-primary rounded-pill px-4" onClick={() => window.location.href = '/register'}>
+                        Login/Sign Up
+                    </button>
+                </div>
                 </div>
             </div>
 

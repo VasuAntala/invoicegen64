@@ -7,11 +7,12 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
 
+    
     // State for form fields
     const [formData, setFormData] = useState({
+        username: '',
         email: '',
         password: '',
-        terms: false,
     });
 
     const [error, setError] = useState('');
@@ -33,6 +34,7 @@ const Login = () => {
         try {
             // Change the URL to match your backend endpoint
             const response = await axios.post('http://localhost:3002/auth/login', {
+                username: formData.username,
                 email: formData.email,
                 password: formData.password,
             });
@@ -41,7 +43,7 @@ const Login = () => {
             // localStorage.setItem("user", JSON.stringify(response.data.user))
             setSuccess('Login successful!');
             // Optionally, redirect after login
-            // window.location.href = '/mainpage';
+            window.location.href = '/mainpage';
         } catch (err) {
             setError(err.response?.data?.error || 'Login failed');
         }
@@ -53,6 +55,19 @@ const Login = () => {
                 <h3> Login Page </h3>
                 <div className="form-group-login">
                     <form onSubmit={handleSubmit}>
+
+                         <label htmlFor="username">Username:</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="username"
+                            name="username"
+                            placeholder="Enter username"
+                            value={formData.username}
+                            onChange={handleChange}
+                            required
+                        />
+<br />
 
                         <label htmlFor="email">Email:</label>
                         <input
@@ -79,7 +94,7 @@ const Login = () => {
                         />
                         <br />
 
-                        <button type="submit" className="btn btn-primary mt-3"  >Login</button>
+                        <button type="submit" className="btn btn-primary mt-3">Login</button>
 
                         <br />
                         <br></br>
