@@ -27,10 +27,11 @@ const Login = () => {
         e.preventDefault();
         setError('');
         setSuccess('');
-        if (!formData.terms) {
-            setError('Please agree to the terms and conditions.');
-            return;
-        }
+
+        // if (!formData.terms) {
+        //     setError('Please agree to the terms and conditions.');
+        //     return;
+        // }
         try {
             // Change the URL to match your backend endpoint
             const response = await axios.post('http://localhost:3002/auth/login', {
