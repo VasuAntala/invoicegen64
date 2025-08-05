@@ -11,7 +11,7 @@ const Mainpagee = () => {
                 <p>Create and manage your invoices easily.</p>
                 <p>Get started by generating your first invoice.</p>
                 <div className="button-container">
-                    <button className="btn btn-primary rounded-pill px-4" onClick={() => window.location.href = '/landingpage'}>
+                    <button className="btn btn-primary rounded-pill px-4" onClick={() => window.location.href = '/invoice'}>
                         Generate Invoice
                     </button>
                 </div>

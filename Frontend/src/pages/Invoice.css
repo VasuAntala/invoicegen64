@@ -1,0 +1,60 @@
+.invoice-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff; 
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(100, 0, 200, 0.1);
+}
+.section-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.section-box {
+  flex: 1  ;
+  padding: 2rem;
+  background: #faf7fd;
+  border-radius: 8px;
+  
+}
+.input-field {
+  margin-bottom: 1rem;
+}
+
+.input-row {
+  margin-bottom: 20rem;
+  display: contents;
+  gap: 40rem;
+}
+input, select {
+  padding: 6px 10px;
+  border: 1px solid #b87ee6;
+  border-radius: 5px;
+}
+.table-section {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.table-section th, .table-section td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+.summary-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+.save-btn {
+  padding: 10px 32px;
+  background: #cf34a8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+

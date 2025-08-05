@@ -8,13 +8,16 @@ import Dashboard from "./pages/Dashboard.jsx";
 import Mainpagee from "./pages/Mainpagee.jsx";
 import PreviewPage from "./pages/Previewpage.jsx";
 import Register from "./pages/Login/signup/registration.jsx";
-import Login from "./pages/Login/login.jsx"
+import Login from "./pages/Login/login.jsx";
+import Invoice from "./pages/Invoice.jsx"
+import InvoicePreview from "./pages/InvoicePreview.jsx";
 import './App.css';
 
  
  
  
  const App = () => {
+
     return (
     <BrowserRouter>
 
@@ -25,7 +28,9 @@ import './App.css';
         <Route path="/" element={<LandingPage />} />
         <Route path="/mainpage" element={<Mainpagee />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/invoice" element={<Invoice />} />
         <Route path="/preview" element={<PreviewPage />} />
+        <Route path="/invoicepreview" element={<InvoicePreview />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />}/>
       </Routes>

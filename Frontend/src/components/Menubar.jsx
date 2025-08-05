@@ -35,9 +35,9 @@ const Manubar = () => {
           </Link>          
       </li>
       <li className="nav-item">
-          <button className="nav-link fw-medium" to='/landingpage'>
+          <Link className="nav-link fw-medium" to='/invoice'>
             Generate
-          </button>     
+          </Link>     
       </li>
       <li className="nav-item">
           <Link className="nav-link fw-medium" to='/preview'>
