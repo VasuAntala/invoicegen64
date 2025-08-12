@@ -58,3 +58,11 @@ input, select {
   cursor: pointer;
 }
 
+/* .invoice-date{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 5px;
+} */

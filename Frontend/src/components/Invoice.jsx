@@ -133,8 +133,8 @@ export default function Invoice() {
 
       console.log('Invoice saved successfully:', response.data);
       setMessage("Invoice saved successfully!");
-navigate('/invoicepreview', { state: { invoiceData: invoiceData } });
-
+navigate('/invoicepreview', { state: { invoiceData: response.data.data } });
+      console.log("Invoice ID:", response.data.data._id); // Log the ID for debugging
       // Optionally reset form or redirect
       // You can uncomment the line below to reset the form after successful save
       // setInvoice({ number: "", date: new Date().toISOString().substring(0, 10), billedBy: { country: "India", name: "", phone: "", gstin: "", address: "", city: "", zip: "", state: "" }, billedTo: { country: "India", name: "", phone: "", gstin: "", address: "", city: "", zip: "", state: "" }, items: [{ ...defaultItem }], cgst: 0, sgst: 0, total: 0 });

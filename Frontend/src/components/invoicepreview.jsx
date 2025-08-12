@@ -2,9 +2,11 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { useNavigate } from "react-router-dom";
 import './invoicepreview.css'; 
 
 function InvoicePreview() {
+  const navigate = useNavigate();
   const { state } = useLocation();
   const invoiceData = state?.invoiceData;
 
@@ -99,7 +101,13 @@ function InvoicePreview() {
       <button onClick={handleDownloadPDF} style={{ marginLeft: '1rem' }}>
   Download as PDF
 </button>
-<button onClick={() => window.location.href = '/invoiceupdate/:id'} style={{ marginLeft: '1rem' }}>
+<button 
+  onClick={() => {
+    console.log("Invoice ID:", invoiceData._id); // should log a real value now
+navigate(`/invoiceupdate/${invoiceData._id}`);
+  }} 
+  style={{ marginLeft: '1rem' }}
+>
   Update Invoice
 </button>
 
