@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
 
-    
+
     // State for form fields
     const [formData, setFormData] = useState({
         username: '',
@@ -28,27 +28,48 @@ const Login = () => {
         setError('');
         setSuccess('');
 
-        // if (!formData.terms) {
-        //     setError('Please agree to the terms and conditions.');
-        //     return;
-        // }
         try {
-            // Change the URL to match your backend endpoint
             const response = await axios.post('http://localhost:3002/auth/login', {
                 username: formData.username,
                 email: formData.email,
                 password: formData.password,
             });
-            console.log("------>" + response.data.data);
-            // localStorage.setItem("token", response.data.token);
-            // localStorage.setItem("user", JSON.stringify(response.data.user))
+
+            // Log the response to inspect data
+            console.log("Login Response:", response.data);
+
+            const userData = response?.data?.data;
+
+            // Store token and username in localStorage
+            if (userData?.token) {
+                localStorage.setItem("token", userData.token);
+            }
+
+            if (userData?.username) {
+                localStorage.setItem("username", userData.username);
+            } else {
+                console.warn("Username not found in response");
+            }
+
+            console.log("Token from localStorage:", localStorage.getItem("token"));
+            console.log("Username from localStorage:", localStorage.getItem("username"));
+
             setSuccess('Login successful!');
-            // Optionally, redirect after login
-            window.location.href = '/mainpage';
+
+            // Redirect logic
+            if (userData?.username === 'admin') {
+      window.location.href = '/admin';
+    } else {
+        window.location.href = '/mainpage';
+    }
+
+
         } catch (err) {
+            console.error(err);
             setError(err.response?.data?.error || 'Login failed');
         }
     }
+
 
     return (
         <div className="container">
@@ -57,7 +78,7 @@ const Login = () => {
                 <div className="form-group-login">
                     <form onSubmit={handleSubmit}>
 
-                         <label htmlFor="username">Username:</label>
+                        <label htmlFor="username">Username:</label>
                         <input
                             type="text"
                             className="form-control"
@@ -68,7 +89,7 @@ const Login = () => {
                             onChange={handleChange}
                             required
                         />
-<br />
+                        <br />
 
                         <label htmlFor="email">Email:</label>
                         <input

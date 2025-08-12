@@ -1,0 +1,100 @@
+.admin-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+
+}
+
+.main-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.manage-user{
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.view-reports {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.settings {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.admin-logout,
+.admin-mainpage,
+.admin-adduser,
+.admin-edituser,
+.admin-deleteuser,
+.admin-viewreport,
+.admin-setting {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;    
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+.admin-logout:hover,
+.admin-mainpage:hover,
+.admin-adduser:hover,
+.admin-edituser:hover,      
+.admin-deleteuser:hover,
+.admin-viewreport:hover,
+.admin-setting:hover {
+    background-color: #0056b3;
+}
+.admin-logout:focus,
+.admin-mainpage:focus,
+.admin-adduser:focus,
+.admin-edituser:focus,          
+.admin-deleteuser:focus,
+.admin-viewreport:focus,
+.admin-setting:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.5);
+}   
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline;
+    justify-content: left;
+    flex-wrap: wrap;
+    margin-bottom: 20px;    
+    font-size: 18px;
+    color: #333;    
+    font-family: Arial, sans-serif;
+
+}
+
+li{
+    margin: 10px 0;
+    display: inline;
+    margin-right: 20px;
+}

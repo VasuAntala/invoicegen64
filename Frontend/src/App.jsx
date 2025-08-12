@@ -9,8 +9,10 @@ import Mainpagee from "./pages/Mainpagee.jsx";
 import PreviewPage from "./pages/Previewpage.jsx";
 import Register from "./pages/Login/signup/registration.jsx";
 import Login from "./pages/Login/login.jsx";
-import Invoice from "./pages/Invoice.jsx"
-import InvoicePreview from "./pages/InvoicePreview.jsx";
+import Invoice from "./components/Invoice.jsx"
+import InvoicePreview from "./components/invoicepreview.jsx";
+import InvoiceUpdate from "./components/invoiceupdate.jsx";
+import Adminpage from "./pages/admin.jsx";
 import './App.css';
 
  
@@ -31,8 +33,10 @@ import './App.css';
         <Route path="/invoice" element={<Invoice />} />
         <Route path="/preview" element={<PreviewPage />} />
         <Route path="/invoicepreview" element={<InvoicePreview />} />
+        <Route path="/invoiceupdate/:id" element={<InvoiceUpdate />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />}/>
+        <Route path="/admin" element={<Adminpage />} />
       </Routes>
 
     <Footer />

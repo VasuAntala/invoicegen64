@@ -48,9 +48,25 @@ const Registration = () => {
                 password: formData.password,
                 conPassword: formData.confirmPassword
             });
+
+            const userData = response?.data?.data;
             console.log("------>" + response);
 
+            if (userData?.token) {
+                localStorage.setItem("token", userData.token);
+            }
+
+            if (userData?.username) {
+                localStorage.setItem("username", userData.username);
+            } else {
+                console.warn("Username not found in response");
+            }
+
+            console.log("Token from localStorage:", localStorage.getItem("token"));
+            console.log("Username from localStorage:", localStorage.getItem("username"));
+
             setSuccess('Registration successful!');
+
             // Optionally, redirect after registration
             window.location.href = '/mainpage';
         } catch (err) {
@@ -61,7 +77,7 @@ const Registration = () => {
     return (
         <div className="container">
             <div className='main-content-registration'>
-                    <h3>Registration Page</h3>
+                <h3>Registration Page</h3>
                 <div className="form-group">
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="username">Username:</label>
@@ -75,7 +91,7 @@ const Registration = () => {
                             placeholder="Enter username"
                             required
                         />
-                            <br />
+                        <br />
                         <label htmlFor="email">Email:</label>
                         <input
                             type="email"
@@ -87,7 +103,7 @@ const Registration = () => {
                             placeholder="Enter email"
                             required
                         />
-                            <br />
+                        <br />
                         <label htmlFor="password">Password:</label>
                         <input
                             type="password"
@@ -99,7 +115,7 @@ const Registration = () => {
                             placeholder="Enter password"
                             required
                         />
-                            <br />
+                        <br />
                         <label htmlFor="confirmPassword">Confirm Password:</label>
                         <input
                             type="password"
@@ -111,7 +127,7 @@ const Registration = () => {
                             placeholder="Confirm password"
                             required
                         />
-                            <br />
+                        <br />
                         <label htmlFor="terms">
                             <input
                                 type="checkbox"
@@ -124,45 +140,45 @@ const Registration = () => {
                             {' '}
                             I agree to the terms and conditions
                         </label>
-                      
+
 
                         <button type="submit" className="btn btn-primary mt-3">
                             Register
                         </button>
                         <br />
 
-                <div className="text-center text-muted mb-3">OR</div>
+                        <div className="text-center text-muted mb-3">OR</div>
 
-                <div className="d-flex gap-3 mb-3">
-                    <button
-                        className="btn w-50"
-                        style={{
-                            border: "1px solid #4169E1",
-                            color: "#4169E1",
-                            backgroundColor: "transparent",
-                        }}
-                    >
-                        <i className="bi bi-facebook me-1" /> Facebook
-                    </button>
-                    <button
-                        className="btn w-50"
-                        style={{
-                           border: "1px solid #4169E1",
-                            color: "#4169E1",
-                            backgroundColor: "transparent",
-                        }}
-                    >
-                        <i className="bi bi-google me-1" /> Google
-                    </button>
-                </div>
+                        <div className="d-flex gap-3 mb-3">
+                            <button
+                                className="btn w-50"
+                                style={{
+                                    border: "1px solid #4169E1",
+                                    color: "#4169E1",
+                                    backgroundColor: "transparent",
+                                }}
+                            >
+                                <i className="bi bi-facebook me-1" /> Facebook
+                            </button>
+                            <button
+                                className="btn w-50"
+                                style={{
+                                    border: "1px solid #4169E1",
+                                    color: "#4169E1",
+                                    backgroundColor: "transparent",
+                                }}
+                            >
+                                <i className="bi bi-google me-1" /> Google
+                            </button>
+                        </div>
 
-                    <p className="text-center text-muted mt-4">
-                    Already have an account?{" "}
-                    <Link to="/login" className="text-decoration-none" style={{ color: "#4169E1" }}>
-                        Login
-                    </Link>
-                </p>      
-            
+                        <p className="text-center text-muted mt-4">
+                            Already have an account?{" "}
+                            <Link to="/login" className="text-decoration-none" style={{ color: "#4169E1" }}>
+                                Login
+                            </Link>
+                        </p>
+
                         {error && <p style={{ color: 'red' }}>{error}</p>}
                         {success && <p style={{ color: 'green' }}>{success}</p>}
                     </form>

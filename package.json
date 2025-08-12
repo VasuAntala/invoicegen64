@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "jwt-decode": "^4.0.0",
     "nodemon": "^3.1.10"
   }
 }
