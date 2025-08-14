@@ -1,0 +1,64 @@
+.about-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.06);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== Headings ===== */
+.about-container h1 {
+  color: #4A148C;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.about-container h2 {
+  margin-top: 25px;
+  color: #6a1b9a;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* ===== Paragraphs ===== */
+.about-container p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* ===== Lists ===== */
+.about-container ul,
+.about-container ol {
+  margin: 10px 0 10px 20px;
+  padding-left: 20px;
+}
+
+.about-container li {
+  margin-bottom: 8px;
+}
+
+/* Emphasize strong text */
+.about-container strong {
+  color: #4A148C;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .about-container {
+    padding: 15px;
+  }
+
+  .about-container h1 {
+    font-size: 1.6rem;
+  }
+
+  .about-container h2 {
+    font-size: 1.1rem;
+  }
+}

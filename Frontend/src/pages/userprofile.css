@@ -1,0 +1,149 @@
+/* ===== USER PROFILE CONTAINER ===== */
+.user-profile {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #333;
+}
+
+/* ===== HEADINGS ===== */
+.user-profile h1 {
+  font-size: 2rem;
+  color: #4A148C;
+  margin-bottom: 8px;
+}
+
+.user-profile p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.user-profile h2 {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #6a1b9a;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+/* ===== MESSAGE BOX ===== */
+.user-message {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  background-color: #e8f5e8;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.user-message.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
+/* ===== INVOICE TABLE ===== */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 0.95rem;
+}
+
+.invoice-table thead th {
+  background: linear-gradient(135deg, #8e24aa, #6a1b9a);
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.invoice-table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.invoice-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Hover effect for rows */
+.invoice-table tbody tr:hover {
+  background: #f3e5f5;
+  transition: background-color 0.2s;
+}
+
+/* ===== BUTTONS ===== */
+.btn-update,
+.btn-delete,
+.btn-view {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  margin-right: 5px;
+}
+
+/* View button */
+.btn-view {
+  background: #3949ab;
+  color: white;
+}
+.btn-view:hover {
+  background: #283593;
+}
+
+/* Update button */
+.btn-update {
+  background: #0288d1;
+  color: #fff;
+}
+.btn-update:hover {
+  background: #0277bd;
+}
+
+/* Delete button */
+.btn-delete {
+  background: #e53935;
+  color: #fff;
+}
+.btn-delete:hover {
+  background: #c62828;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .invoice-table thead {
+    display: none; /* Hide header */
+  }
+
+  .invoice-table tr {
+    display: block;
+    margin-bottom: 15px;
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .invoice-table td {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    border: none;
+  }
+
+  .invoice-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #6a1b9a;
+  }
+}

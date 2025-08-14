@@ -17,7 +17,7 @@ const defaultItem = {
 export default function Invoice() {
   const [invoice, setInvoice] = useState({
     number: "",
-    date: new Date().toISOString().substring(0, 10),
+    date: new Date().toISOString(),
     billedBy: {
       name: "",
       phone: "",
@@ -328,6 +328,7 @@ navigate('/invoicepreview', { state: { invoiceData: response.data.data } });
           <h3>Total (INR): ₹{grandTotal.toFixed(2)}</h3>
         </div>
       </div>
+
 
       {/* Updated Save button */}
       <button

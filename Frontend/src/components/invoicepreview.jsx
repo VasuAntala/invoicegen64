@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation , useParams } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import './invoicepreview.css';
 function InvoicePreview() {
   const navigate = useNavigate();
   const { state } = useLocation();
+  const { id } = useParams(); // Get invoice ID from URL params
   const invoiceData = state?.invoiceData;
 
   if (!invoiceData) {
@@ -97,7 +98,7 @@ function InvoicePreview() {
       <button onClick={() => window.print()} style={{ marginTop: '16px' }}>
         Print Invoice
       </button>
-      {/* Add PDF download here if you wish */}
+      {/* Add PDF download here if you invwish */}
       <button onClick={handleDownloadPDF} style={{ marginLeft: '1rem' }}>
   Download as PDF
 </button>

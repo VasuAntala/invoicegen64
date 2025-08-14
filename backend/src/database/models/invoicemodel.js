@@ -85,6 +85,15 @@ const itemSchema = new mongoose.Schema({
 
 // Main invoice schema
 const invoice = new mongoose.Schema({
+  invoiceNumber: {
+    type: String,
+    required: false,
+    unique: true
+  },
+  invoiceDate: {
+    type: Date,
+    default: Date.now
+  },
   billedBy: {
     type: addressSchema,
     required: true
@@ -92,15 +101,6 @@ const invoice = new mongoose.Schema({
   billedTo: {
     type: addressSchema,
     required: true
-  },
-  invoiceNumber: {
-    type: String,
-    required: false,
-    unique: false
-  },
-  invoiceDate: {
-    type: Date,
-    default: Date.now
   },
 items: [itemSchema],
   subtotal: { 
@@ -124,8 +124,16 @@ items: [itemSchema],
   timestamps: true // Automatically adds createdAt and updatedAt
 });
 
+invoice.pre('save', async function(next) {
+  if (this.isNew) {
+    const count = await mongoose.model('Invoice').countDocuments();
+    this.invoiceNumber = `INV-${String(count + 1).padStart(6, '0')}`;
+  }
+  next();
+});
+
  const Invoice = mongoose.model('Invoice', invoice);
 
-export default Invoice;
+export default Invoice; 
 
 

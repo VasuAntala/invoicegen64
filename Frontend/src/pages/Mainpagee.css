@@ -1,114 +1,134 @@
+/* Background with gradients — covers full viewport */
+body,
+html {
+    height: 100%;
+    /* margin: 0;
+  padding: 0; */
+}
+
+body {
+    background:
+        radial-gradient(1200px 600px at -10% -10%, rgba(79, 70, 229, 0.1), transparent 60%),
+        radial-gradient(1000px 500px at 110% -10%, rgba(34, 197, 94, 0.1), transparent 60%),
+        #f7f8fb;
+    font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+/* Make container fill the screen */
 .container {
-    display:contents;
-
-}
-
-
-.main-content{
-background: #9c6bff;
-background: linear-gradient(58deg, rgba(156, 107, 255, 1) 0%, rgba(148, 219, 255, 1) 50%, rgba(148, 187, 233, 1) 100%);    /* background-color: #87A2FF; */
     display: flex;
-    flex-direction: column;
-    align-items: right;
-    justify-content: center;
-    padding: 20px;
-    min-height: 92vh;
-}
-
-.main-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-.main-content p {
-    font-size: 1.2rem;
-    color: #fdfdfd;
-}
-.button-container .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #fb1818;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.button-container {
-    display: flex;
-    justify-content: left;
     align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* full height */
+    width: 100%;
+    padding: 20px;
+}
+
+/* Main content is now big and hero style */
+.main-content {
+    flex: 1;
+    /* take full width if needed */
+    display: block;
+    min-height: 80vh;
+    width: 100%;
+    padding: 0;
+    padding: 60px 40px;
+    background: linear-gradient(180deg, #ffffff, #f9fafb);
+    text-align: left;
+    margin-top: 250px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.6s ease both;
+}
+
+/* Glow accents */
+.main-content::before,
+.main-content::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+}
+
+.main-content::before {
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.35), transparent 70%);
+    top: -80px;
+    left: -80px;
+}
+
+.main-content::after {
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.35), transparent 70%);
+    bottom: -80px;
+    right: -80px;
+}
+
+.main-content>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* Heading large for hero */
+.main-content h1 {
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    background: linear-gradient(90deg, #4f46e5, #22c55e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Subtext */
+.main-content p {
+    font-size: 18px;
+    color: #6b7280;
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+/* Button containers stacked & spaced */
+.button-container {
     margin-top: 20px;
 }
-/* .button-container .btn {
-    display: flex;
-    /* display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: red;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease; */
-/* }    */
 
+.button-container .btn {
+    background: linear-gradient(90deg, #4f46e5, #22c55e);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 50px;
+    transition: all 0.25s ease;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+}
 
 .button-container .btn:hover {
-    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(79, 70, 229, 0.35);
 }
 
-.button-container .btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
-}
-.button-container .btn:active {
-    background-color: #004085;
-} 
+/* Fade animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
 
-/* button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-button:hover {
-    background-color: #0056b3;
-}
-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
-}
-button:active { 
-    background-color: #004085;
-}    */
-
-
-.blue-container {
-  background: #2680eb;    /* nice blue shade */
-  padding: 32px 0;
-  border-radius: 16px;
-  margin: 32px auto;
-  width: 90%;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.image-container {
-  display: contents;
-  justify-content: right; /* center the images horizontally */
-  gap: 24px;               /* space between the images */
-}
-
-.invoice-image {
-  max-width: 220px;
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0px 6px 24px rgba(0,0,0,0.17);
-  border: 4px solid #fff;
+/* Mobile tweaks */
+@media (max-width: 600px) {
+    .main-content {
+        padding: 40px 20px;
+        border-radius: 14px;
+    }
 }
