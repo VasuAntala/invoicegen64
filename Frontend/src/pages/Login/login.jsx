@@ -89,7 +89,7 @@ const Login = () => {
                             onChange={handleChange}
                             required
                         />
-                     
+                     <br />
 
                         <label htmlFor="email">Email:</label>
                         <input
@@ -102,7 +102,7 @@ const Login = () => {
                             onChange={handleChange}
                             required
                         />
-                       
+                       <br />
                         <label htmlFor="password">Password:</label>
                         <input
                             type="password"
