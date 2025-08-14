@@ -48,25 +48,9 @@ const Registration = () => {
                 password: formData.password,
                 conPassword: formData.confirmPassword
             });
-
-            const userData = response?.data?.data;
             console.log("------>" + response);
 
-            if (userData?.token) {
-                localStorage.setItem("token", userData.token);
-            }
-
-            if (userData?.username) {
-                localStorage.setItem("username", userData.username);
-            } else {
-                console.warn("Username not found in response");
-            }
-
-            console.log("Token from localStorage:", localStorage.getItem("token"));
-            console.log("Username from localStorage:", localStorage.getItem("username"));
-
             setSuccess('Registration successful!');
-
             // Optionally, redirect after registration
             window.location.href = '/mainpage';
         } catch (err) {
@@ -91,7 +75,7 @@ const Registration = () => {
                             placeholder="Enter username"
                             required
                         />
-                        <br />
+         
                         <label htmlFor="email">Email:</label>
                         <input
                             type="email"
@@ -103,7 +87,7 @@ const Registration = () => {
                             placeholder="Enter email"
                             required
                         />
-                        <br />
+          
                         <label htmlFor="password">Password:</label>
                         <input
                             type="password"
@@ -115,7 +99,7 @@ const Registration = () => {
                             placeholder="Enter password"
                             required
                         />
-                        <br />
+            
                         <label htmlFor="confirmPassword">Confirm Password:</label>
                         <input
                             type="password"
@@ -127,18 +111,19 @@ const Registration = () => {
                             placeholder="Confirm password"
                             required
                         />
-                        <br />
+               
                         <label htmlFor="terms">
                             <input
                                 type="checkbox"
                                 id="terms"
                                 name="terms"
-                                className="form-check-input"
+                                 className="check-box"
                                 checked={formData.terms}
                                 onChange={handleChange}
                             />
-                            {' '}
+                            {''}
                             I agree to the terms and conditions
+                       
                         </label>
 
 
@@ -172,9 +157,17 @@ const Registration = () => {
                             </button>
                         </div>
 
-                        <p className="text-center text-muted mt-4">
-                            Already have an account?{" "}
-                            <Link to="/login" className="text-decoration-none" style={{ color: "#4169E1" }}>
+                        <p className="text-center text-muted">
+                            <span>Already have an account?</span>
+                            <Link
+                                to="/login"
+                                className="register-link "
+                                style={{
+                                    color: "#4169E1",
+                                    verticalAlign: "bottom", 
+                                    display: "inline-block"
+                                }}
+                            >
                                 Login
                             </Link>
                         </p>

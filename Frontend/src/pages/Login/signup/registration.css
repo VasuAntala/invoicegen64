@@ -60,7 +60,7 @@ background: linear-gradient(312deg, rgba(238, 174, 202, 1) 0%, rgba(183, 182, 22
 }
 
 
-.form-check-input {
+.check-box {
     margin-right: 10px;
     margin-top: auto;
 }
@@ -71,3 +71,4 @@ background: linear-gradient(312deg, rgba(238, 174, 202, 1) 0%, rgba(183, 182, 22
     color: #ffffff;
     text-decoration: none;
 }
+
