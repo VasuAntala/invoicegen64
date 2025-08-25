@@ -13,7 +13,7 @@ export default function Invoicedelete() {
   const fetchInvoices = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:3002/gen/invoice');
+      const res = await axios.get('https://invoicegen64-5.onrender.com/gen/invoice');
       setInvoices(res.data.data || []);
     } catch (error) {
       console.error(error);

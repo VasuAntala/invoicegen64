@@ -24,7 +24,7 @@ export default function InvoiceUpdate() {
     useEffect(() => {
         if (!id) return;
 
-        axios.get(`http://localhost:3002/gen/invoice/${id}`)
+        axios.get(`https://invoicegen64-5.onrender.com/gen/invoice/${id}`)
             .then(response => {
                 setInvoice(response.data.data); // Adjust according to your API response structure
             })

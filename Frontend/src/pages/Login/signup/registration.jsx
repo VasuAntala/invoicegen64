@@ -42,7 +42,7 @@ const Registration = () => {
 
         try {
             // Change the URL to match your backend endpoint
-            const response = await axios.post('http://localhost:3002/auth/registers', {
+            const response = await axios.post('https://invoicegen64-5.onrender.com/auth/registers', {
                 username: formData.username,
                 email: formData.email,
                 password: formData.password,

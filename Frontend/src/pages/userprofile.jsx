@@ -34,7 +34,7 @@ const UserProfile = () => {
     const deleteInvoice = async (id) => {
         if (!window.confirm('Are you sure you want to delete this invoice?')) return;
         try {
-            await axios.delete(`http://localhost:3002/gen/invoice/${id}`);
+            await axios.delete(`https://invoicegen64-5.onrender.com/gen/invoice/${id}`);
             setMessage('Invoice deleted successfully!');
             fetchInvoices();
         } catch (err) {

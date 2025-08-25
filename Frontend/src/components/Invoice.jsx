@@ -125,7 +125,7 @@ export default function Invoice() {
 
       console.log('Sending invoice data:', invoiceData);
 
-      const response = await axios.post('http://localhost:3002/gen/invoice', invoiceData, {
+      const response = await axios.post('https://invoicegen64-5.onrender.com/gen/invoice', invoiceData, {
         headers: {
           'Content-Type': 'application/json',
         }
