@@ -60,7 +60,7 @@ const Login = () => {
             if (userData?.username === 'admin') {
       window.location.href = '/admin';
     } else {
-        window.location.href = '/mainpage';
+        window.location.href = '/';
     }
 
 

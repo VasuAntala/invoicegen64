@@ -50,9 +50,27 @@ const Registration = () => {
             });
             console.log("------>" + response);
 
+            
+            //  const userData = response?.data?.data;
+
+            // // Store token and username in localStorage
+            // if (userData?.token) {
+            //     localStorage.setItem("token", userData.token);
+            // }
+
+            // if (userData?.username) {
+            //     localStorage.setItem("username", userData.username);
+            // } else {
+            //     console.warn("Username not found in response");
+            // }
+
+            // console.log("Token from localStorage:", localStorage.getItem("token"));
+            // console.log("Username from localStorage:", localStorage.getItem("username"));
+
+
             setSuccess('Registration successful!');
             // Optionally, redirect after registration
-            window.location.href = '/mainpage';
+            window.location.href = '/';
         } catch (err) {
             setError(err.response?.data?.error || 'Registration failed');
         }
