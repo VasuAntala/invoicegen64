@@ -1,48 +1,70 @@
-import react from 'react';
+import React, { useEffect, useState } from 'react';
 import './admin.css';
+import { fetchAdminStats } from '../services/invoiceapi.jsx';
 
 function AdminPage() {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [stats, setStats] = useState({ users: 0, activeUsers: 0, invoices: 0 });
+
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        const data = await fetchAdminStats();
+        if (mounted) {
+          setStats(data || { users: 0, activeUsers: 0, invoices: 0 });
+        }
+      } catch (e) {
+        if (mounted) setError(e.message);
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    })();
+    return () => { mounted = false };
+  }, []);
+
   return (
-    <div class="admin-page">
+    <div className="admin-dashboard-container">
+      <header className="dashboard-header">
+        <h2>Admin Dashboard</h2>
+        <p>Welcome to the admin dashboard. Manage users, invoices, and settings efficiently.</p>
+      </header>
 
-    <div class="main-page">
-      <h2>Admin Page</h2>
-      <p>Welcome to the admin dashboard. Here you can manage users, view reports, and perform administrative tasks.</p>
-      <p>For any issues, please contact support.</p>  
-     
-      <ul>
-        <li><a href="/manage-users">Manage Users</a></li>
-        <li><a href="/view-reports">View Reports</a></li>
-        <li><a href="/settings">Settings</a></li>
-      </ul>
+      <div className="dashboard-summary-cards">
+        <div className="summary-card">
+          <h3>Users</h3>
+          <p>Total Users: {stats.users}</p>
+          <p>Active Users: {stats.activeUsers}</p>
+          <button onClick={() => window.location.href = '/admin/users'}>Manage Users</button>
+        </div>
 
-<br />
+        <div className="summary-card">
+          <h3>Invoices</h3>
+          <p>Total Invoices: {stats.invoices}</p>
+          <p>Paid: -</p>
+          <p>Unpaid: -</p>
+          <button onClick={() => window.location.href = '/admin/invoices'}>View Invoices</button>
+        </div>
 
-      <button class="admin-logout" onClick={() => window.location.href = '/mainpage'}>Logout</button>
-      <button class="admin-mainpage" onClick={() => window.location.href = '/mainpage'}>Go to Main Page</button>
-    </div>  
-
-    <div class="manage-user">
-      <h3>Manage Users</h3>
-      <p>Here you can add, edit, or delete users.</p>
-      <button class="admin-adduser" onClick={() => window.location.href = '/add-user'}>Add User</button>
-      <button class="admin-edituser" onClick={() => window.location.href = '/edit-user'}>Edit User</button>
-      <button class="admin-deleteuser" onClick={() => window.location.href = '/delete-user'}>Delete User</button>
-    </div>
-
-    <div class="view-reports">
-      <h3>View Reports</h3>
-      <p>Access various reports related to user activity, system performance, and more.</p>
-      <button className="admin-viewreport" onClick={() => window.location.href = '/reports'}>View Reports</button>
-    </div>
-
-    <div class="settings">
-      <h3>Settings</h3>
-      <p>Configure application settings, manage notifications, and customize your admin dashboard.</p>
-      <button className="admin-setting" onClick={() => window.location.href = '/settings'}>Settings</button>
-    </div>  
+        <div className="summary-card">
+          <h3>Settings</h3>
+          <p>Customize your admin dashboard and preferences</p>
+          <button onClick={() => window.location.href = '/settings'}>Go to Settings</button>
+        </div>
       </div>
-  
+
+      <section className="dashboard-actions">
+        {loading && <p>Loading stats...</p>}
+        {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
+        <h3>Quick Actions</h3>
+        <button onClick={() => window.location.href = '/add-user'}>Add User</button>
+        <button onClick={() => window.location.href = '/edit-user'}>Edit User</button>
+        <button onClick={() => window.location.href = '/delete-user'}>Delete User</button>
+        <button onClick={() => window.location.href = '/reports'}>View Reports</button>
+        <button className="admin-logout" onClick={() => window.location.href = '/login'}>Logout</button>
+      </section>
+    </div>
   );
 }
 

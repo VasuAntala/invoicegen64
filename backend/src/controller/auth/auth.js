@@ -74,6 +74,13 @@ export const login = async (req, res) => {
 
     console.log(token)
 
+    // update last login timestamp (non-blocking for response)
+    try {
+      await model.User.findByIdAndUpdate(user._id, { lastLoginAt: new Date() });
+    } catch (e) {
+      // ignore audit update errors
+    }
+
     res.status(200).json({
       message: 'Login successful',
       data:{

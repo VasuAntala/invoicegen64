@@ -118,7 +118,14 @@ items: [itemSchema],
   grandTotal: { 
     type: Number, 
     required: true
- }
+ },
+  payment: {
+    upiId: {
+      type: String,
+      trim: true,
+      default: ''
+    }
+  }
 
 }, {
   timestamps: true // Automatically adds createdAt and updatedAt

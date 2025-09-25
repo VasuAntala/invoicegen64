@@ -52,10 +52,20 @@ const UserProfile = () => {
         navigate(`/invoiceupdate/${invoice._id}`);  // useParams in your InvoiceUpdate will catch this
     };
 
+
+    
     return (
         <div className="user-profile">
             <h1>User Profile</h1>
             <p>Welcome to your profile page!</p>
+            {username === 'admin' && (
+          <button 
+            className="btn-admin-dashboard" 
+            onClick={() => navigate('/admin')}
+          >
+            Go to Admin Dashboard
+          </button>
+        )}
             {message && <div className="user-message">{message}</div>}
 
             <h2>Your Invoices</h2>

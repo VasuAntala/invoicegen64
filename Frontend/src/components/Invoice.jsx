@@ -40,6 +40,9 @@ export default function Invoice() {
     cgst: 0,
     sgst: 0,
     total: 0,
+    payment: {
+      upiId: ""
+    }
   });
   const navigate = useNavigate();
   
@@ -119,13 +122,16 @@ export default function Invoice() {
         subtotal,
         totalCgst,
         totalSgst,
-        grandTotal
+        grandTotal,
+        payment: {
+          upiId: invoice.payment.upiId
+        }
       };
 
 
       console.log('Sending invoice data:', invoiceData);
 
-      const response = await axios.post('https://invoicegen64-5.onrender.com/gen/invoice', invoiceData, {
+      const response = await axios.post('http://localhost:3002/gen/invoice', invoiceData, {
         headers: {
           'Content-Type': 'application/json',
         }
@@ -263,6 +269,21 @@ navigate('/invoicepreview', { state: { invoiceData: response.data.data } });
           </div>
           <div className="input-field">
             <input name="state" placeholder="State" value={invoice.billedTo.state} onChange={handleRecipientChange} />
+          </div>
+        </div>
+      </div>
+
+      {/* Payment Details */}
+      <div className="section-row">
+        <div className="section-box">
+          <h4>Payment</h4>
+          <div className="input-field">
+            <input
+              name="upiId"
+              placeholder="UPI ID (e.g., name@upi)"
+              value={invoice.payment.upiId}
+              onChange={e => setInvoice(prev => ({ ...prev, payment: { ...prev.payment, upiId: e.target.value } }))}
+            />
           </div>
         </div>
       </div>

@@ -70,7 +70,7 @@ const Registration = () => {
 
             setSuccess('Registration successful!');
             // Optionally, redirect after registration
-            window.location.href = '/';
+            window.location.href = '/login';
         } catch (err) {
             setError(err.response?.data?.error || 'Registration failed');
         }

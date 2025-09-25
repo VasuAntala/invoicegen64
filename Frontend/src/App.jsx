@@ -15,6 +15,8 @@ import Invoicedelete from "./components/invoicedelete.jsx";
 import Userprofile from "./pages/userprofile.jsx";
 import ContactUs from "./pages/contactus.jsx";
 import Adminpage from "./pages/admin.jsx";
+import AdminUsers from "./pages/adminUsers.jsx";
+import AdminInvoices from "./pages/adminInvoices.jsx";
 import './App.css';
 
  
@@ -37,13 +39,16 @@ import './App.css';
         <Route path="/invoicepreview" element={<InvoicePreview />} />
         <Route path="/invoiceupdate/:id" element={<InvoiceUpdate />} />
         <Route path="/invoicedelete" element={<Invoicedelete />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />}/>
         <Route path="/userprofile" element={<Userprofile />} />
         <Route path="/admin" element={<Adminpage />} />
+        <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/invoices" element={<AdminInvoices />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />}/>
       </Routes>
 
-    <Footer />
+      <Toaster />
+      <Footer />
     </BrowserRouter>
     );
   }

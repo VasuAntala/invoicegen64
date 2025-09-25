@@ -112,6 +112,8 @@ navigate(`/invoiceupdate/${invoiceData._id}`);
   Update Invoice
 </button>
 
+<button onClick={() => window.location.href = '/'} style={{ marginLeft: '1rem' }}>Home</button>
+
     </div>
   );
 }
