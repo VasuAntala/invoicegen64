@@ -6,7 +6,11 @@ import { mongooseConnection } from './database/connection/connection.js';
 const app = express();
 
 // CORS for React frontend
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: [
+  "http://localhost:5173",
+  "https://invoicegen64-aacq.vercel.app" // your deployed frontend
+]
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
