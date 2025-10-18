@@ -29,7 +29,7 @@ const Login = () => {
         setSuccess('');
 
         try {
-            const response = await axios.post('http://localhost:3002/auth/login', {
+            const response = await axios.post('https://invoicegen64-5.onrender.com/auth/login', {
                 username: formData.username,
                 email: formData.email,
                 password: formData.password,

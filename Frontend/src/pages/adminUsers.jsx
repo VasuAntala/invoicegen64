@@ -29,8 +29,8 @@ export default function AdminUsers() {
       </header>
       {loading && <p>Loading users...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div className="summary-card" style={{ width: '70vw' , margin: '10px ' }}>
-        <table style={{ width: '60vw', borderCollapse: 'collapse' , marginTop: '1rem'  }}>
+      <div className="summary-card" style={{ width: '100%' , margin: '10px ' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse' , marginTop: '1rem'  }}>
           <thead>
             <tr>
               <th style={{ textAlign: 'center' , }}>Username</th>

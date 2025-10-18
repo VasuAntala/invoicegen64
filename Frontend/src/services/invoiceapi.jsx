@@ -28,7 +28,7 @@ export const createInvoice = async (invoiceData) => {
   } catch (error) {
     const errorMessage = error.response?.data?.message || error.message || 'Failed to create invoice';
     throw new Error(errorMessage);
-  }
+  }c 
 };
 
 export const fetchAdminStats = async () => {
